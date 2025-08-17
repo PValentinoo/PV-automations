@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import MaintenancePage from "./components/MaintenancePage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 // Smooth Page Transition Wrapper
@@ -47,6 +48,11 @@ const AppContent = () => {
         <Route path="/" element={
           <PageTransition>
             <Index />
+          </PageTransition>
+        } />
+        <Route path="/privatlivspolitik" element={
+          <PageTransition>
+            <PrivacyPolicy />
           </PageTransition>
         } />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -20,8 +20,8 @@ const Navigation = () => {
       // For "Hjem", scroll to the very top instantly
       window.scrollTo(0, 0);
     } else {
-      // For other items, scroll with a consistent -20 offset
-      smoothScrollToNative(href.replace('#', ''), -20);
+      // For other items, scroll with consistent offset
+      smoothScrollToNative(href.replace('#', ''));
     }
   };
 
@@ -56,7 +56,7 @@ const Navigation = () => {
             <Button 
               variant="hero" 
               size="sm"
-              onClick={() => smoothScrollToNative('kontakt', -20)}
+              onClick={() => smoothScrollToNative('kontakt')}
             >
               Book konsultation
             </Button>
@@ -96,7 +96,7 @@ const Navigation = () => {
                 variant="hero" 
                 size="sm" 
                 className="mt-4 w-fit"
-                onClick={() => smoothScrollToNative('kontakt', -20)}
+                onClick={() => smoothScrollToNative('kontakt')}
               >
                 Book konsultation
               </Button>

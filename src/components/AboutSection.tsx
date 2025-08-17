@@ -1,108 +1,167 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Clock, Target } from "lucide-react";
+import { Award, Users, Clock, Target, Code, Database, Zap, Lightbulb } from "lucide-react";
 
 const AboutSection = () => {
-  const stats = [
+  const skills = [
     {
-     icon: Users,
-      number: "100+",
-          label: "Virksomhedskunder"
+      icon: Code,
+      title: "Full-Stack Udvikling",
+      description: "React, TypeScript, Node.js, Python og moderne web teknologier"
     },
     {
-      icon: Target,
-      number: "50+",
-      label: "Leverede projekter"
+      icon: Database,
+      title: "Database & Backend",
+      description: "Supabase, PostgreSQL, API integration og cloud services"
     },
     {
-      icon: Clock,
-      number: "6+",
-      label: "År erfaring med digitale værktøjer"
+      icon: Zap,
+      title: "Automatisering",
+      description: "N8N workflows, proces optimisering og business automation"
     },
     {
-      icon: Award,
-      number: "99%",
-      label: "Kundetilfredshed"
+      icon: Lightbulb,
+      title: "AI & Machine Learning",
+      description: "OpenAI integration, RAG systems og intelligent automatisering"
     }
   ];
 
   return (
-    <section id="om" className="py-20 bg-gradient-card">
+    <section id="om" className="py-24 bg-gradient-card">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
               Om{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                PV Automations
+                Mig
               </span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Vi specialiserer os i at levere professionelle automatiseringsløsninger til virksomheder 
-              fra startup til enterprise niveau. Vores erfaring spænder bredt - vi kan det hele.
+              Mit navn er <strong>Philip Valentin Christiansen</strong>, og jeg står bag <strong>PV Automations</strong>.<br />
+              Jeg er udvikler og automatiseringsekspert med en passion for at optimere arbejdsgange 
+              og bringe moderne teknologi ind i virksomheder.<br />
+              <br />
+              Med mere end <strong>5+ års erfaring</strong> fra revisionsbranchen har jeg udviklet en bred vifte af 
+              værktøjer og automatiseringer, som har effektiviseret processer, reduceret manuelle 
+              opgaver og frigjort tid til værdiskabende arbejde.<br /> 
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
+          <div className="grid lg:grid-cols-3 gap-12 mb-20">
+            <div className="lg:col-span-2">
+              <Card className="bg-gradient-card border-border/50 shadow-soft h-full">
+                <CardContent className="p-8 md:p-12">
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+                    Min rejse i tech
+                  </h3>
+                  
+                  <div className="space-y-8">
+                    <div>
+                      <h4 className="text-xl font-semibold text-foreground mb-3">🎯 Min Mission</h4>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        Jeg brænder for at skabe løsninger der ikke bare fungerer, men som faktisk gør en forskel 
+                        for virksomheder. Det handler om at forstå de rigtige problemer og bygge de rigtige løsninger.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xl font-semibold text-foreground mb-3">🚀 Erfaring & Ekspertise</h4>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        Med over 5 års erfaring i revision og digital transformation har jeg arbejdet med alt fra små startups til 
+                        store virksomheder. Jeg specialiserer mig i at bygge skalerbare systemer der vokser med 
+                        jeres forretning.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xl font-semibold text-foreground mb-3">🌟 Min Tilgang</h4>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        Jeg tror på tæt samarbejde og åben kommunikation. Jeg starter altid med at lytte til 
+                        jeres behov og forstå jeres udfordringer. Sammen finder vi den bedste løsning - ikke 
+                        bare den hurtigste eller billigste, men den der giver mest værdi på lang sigt.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xl font-semibold text-foreground mb-3">🤝 Hvorfor Vælge Mig?</h4>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        Jeg kombinerer teknisk ekspertise med forretningsforståelse. Det betyder at jeg ikke 
+                        bare bygger kode eller excel ark - jeg bygger løsninger der giver mening for jeres virksomhed.
+                        Og jeg er her for at hjælpe jer også efter projektet er færdigt.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="lg:col-span-1">
+              <div className="sticky top-8">
+                <Card className="bg-gradient-card border-border/50 shadow-soft">
+                  <CardContent className="p-8 text-center">
+                    <div className="mb-6">
+                      <img 
+                        src="/Philip Valentin Christiansen_21038.jpg" 
+                        alt="Philip Valentin Christiansen" 
+                        className="w-48 h-48 md:w-56 md:h-56 rounded-full mx-auto object-cover shadow-soft border-4 border-white/20"
+                      />
+                    </div>
+                    <h4 className="text-2xl font-bold text-foreground mb-3">
+                      Philip Valentin Christiansen
+                    </h4>
+                    <p className="text-muted-foreground mb-4">
+                      Full-Stack Developer & Automatiseringsekspert
+                    </p>
+                    <div className="space-y-3 text-sm text-muted-foreground">
+                      <div>📍 Danmark</div>
+                      <div>💼 5+ års erfaring</div>
+                      <div>🎓 HD uddannet</div>
+                      <div>🚀 50+ projekter leveret</div>
+                      <div>🌍 Dansk, engelsk og russisk talende</div>
+                      <div>📊 Modersmål: Excel</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {skills.map((skill, index) => {
+              const IconComponent = skill.icon;
               return (
                 <div key={index} className="text-center">
                   <div className="mb-4 flex justify-center">
-                    <div className="p-3 bg-gradient-primary rounded-lg shadow-soft">
-                      <IconComponent className="h-6 w-6 text-white" />
+                    <div className="p-4 bg-gradient-primary rounded-lg shadow-soft">
+                      <IconComponent className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  <div className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </div>
+                  <h4 className="text-lg font-semibold text-foreground mb-2">
+                    {skill.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    {skill.description}
+                  </p>
                 </div>
               );
             })}
           </div>
 
           <Card className="bg-gradient-card border-border/50 shadow-soft">
-            <CardContent className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                    Vores tilgang til transformation
-                  </h3>
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Forretningsfokuseret</h4>
-                      <p className="text-muted-foreground">
-                        Vi starter altid med jeres forretningsmål og designer løsninger der skaber målbar værdi.
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">🤝 Samarbejde og kvalitet</h4>
-                      <p className="text-muted-foreground">
-                        Vi ønsker at samarbejde med jer, forstå jeres behov og hjælpe jer med at nå jeres mål.
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">🙋 Assistance og rådgivning</h4>
-                      <p className="text-muted-foreground">
-                        Vi forlader jer ikke når produktet er færdigt - vi vil gerne høre om det virker som det skal, og om i er tilfredse med løsningen.
-                      </p>
-                    </div>
-
-                  </div>
+            <CardContent className="p-8 md:p-12 text-center">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Klar til at optimere jeres processer?
+              </h3>
+              <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+                Lad os snakke om hvordan jeg kan hjælpe jer med at automatisere, optimere og skabe 
+                de digitale løsninger jeres virksomhed har brug for.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <div className="text-xl font-semibold text-primary">
+                  Gratis førstesamtale
                 </div>
-                
-                <div className="bg-gradient-hero rounded-xl p-8 text-center">
-                  <h4 className="text-xl font-bold text-foreground mb-4">
-                    Klar til at optimere jeres processer?
-                  </h4>
-                  <p className="text-muted-foreground mb-6">
-                    Vi analyserer jeres nuværende setup og identificerer konkrete forbedringspotentialer.
-                  </p>
-                  <div className="text-lg font-semibold text-primary">
-                    Gratis førstesamtale
-                  </div>
+                <div className="text-lg text-muted-foreground">
+                  • Ingen forpligtelse • Personlig rådgivning • Konkrete forslag
                 </div>
               </div>
             </CardContent>

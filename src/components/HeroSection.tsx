@@ -153,7 +153,7 @@ const HeroSection = () => {
               variant="hero" 
               size="xl" 
               className="group"
-              onClick={() => smoothScrollToNative('kontakt', -20)}
+              onClick={() => smoothScrollToNative('kontakt')}
             >
               Book en gratis konsultation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -161,7 +161,7 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="xl"
-              onClick={() => smoothScrollToNative('eksempler', -20)}
+              onClick={() => smoothScrollToNative('eksempler')}
             >
               Se eksempler
             </Button>

@@ -91,7 +91,7 @@ const ServicesSection = () => {
             variant="hero" 
             size="xl" 
             className="group"
-            onClick={() => smoothScrollToNative('kontakt', -20)}
+            onClick={() => smoothScrollToNative('kontakt')}
           >
             Kontakt mig i dag
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

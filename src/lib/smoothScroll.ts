@@ -1,4 +1,6 @@
-export const smoothScrollTo = (targetId: string, offset: number = 0) => {
+import { SCROLL_OFFSET } from "@/config/scroll";
+
+export const smoothScrollTo = (targetId: string, offset: number = SCROLL_OFFSET) => {
   const targetElement = document.getElementById(targetId);
   
   if (!targetElement) {
@@ -35,7 +37,7 @@ const easeInOutCubic = (t: number, b: number, c: number, d: number): number => {
 };
 
 // Alternative smooth scroll using native smooth scrolling if available
-export const smoothScrollToNative = (targetId: string, offset: number = 0) => {
+export const smoothScrollToNative = (targetId: string, offset: number = SCROLL_OFFSET) => {
   const targetElement = document.getElementById(targetId);
   
   if (!targetElement) {

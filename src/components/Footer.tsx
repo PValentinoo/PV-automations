@@ -24,7 +24,7 @@ const Footer = () => {
               Professionelle automatiseringsløsninger til virksomheder i alle størrelser. 
               Fra tanke til transformation.
             </p>
-            <Button variant="hero" size="sm" onClick={() => smoothScrollToNative('kontakt', -20)}>
+            <Button variant="hero" size="sm" onClick={() => smoothScrollToNative('kontakt')}>
               Book konsultation
             </Button>
           </div>
@@ -42,24 +42,36 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <a href="#eksempler" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => smoothScrollToNative('eksempler')}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
+                >
                   Eksempler
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#ydelser" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => smoothScrollToNative('ydelser')}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
+                >
                   Ydelser
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#om" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => smoothScrollToNative('om')}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
+                >
                   Om
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#kontakt" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => smoothScrollToNative('kontakt')}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
+                >
                   Kontakt
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -101,11 +113,8 @@ const Footer = () => {
           </p>
           
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a href="/privatlivspolitik" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Privatlivspolitik
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Handelsbetingelser
             </a>
             <button
               onClick={scrollToTop}

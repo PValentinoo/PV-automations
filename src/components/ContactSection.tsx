@@ -177,7 +177,7 @@ const ContactSection = () => {
 
                 <div className="mt-6 p-4 bg-primary/5 rounded-lg">
                   <p className="text-sm text-muted-foreground text-center">
-                    <strong>Professionel konsultation</strong> - Vi drøfter jeres ønsker og behov
+                    <strong>Professionel konsultation</strong> - Lad os drøfte jeres ønsker og behov
                   </p>
                 </div>
               </CardContent>
@@ -233,7 +233,7 @@ const ContactSection = () => {
               <Card className="bg-gradient-hero border-border/50 shadow-soft">
                 <CardContent className="p-8 text-center">
                   <h3 className="text-xl font-bold text-foreground mb-4">
-                    Vores proces
+                    Kort om processen
                   </h3>
                   <div className="space-y-4 text-left">
                     <div className="flex items-start space-x-3">
