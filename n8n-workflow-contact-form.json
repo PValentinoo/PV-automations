@@ -1,0 +1,138 @@
+{
+  "name": "PV Automation Contact Form Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook-test/pvautomations-contact",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "webhook-node",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "pvautomations-contact"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "organization",
+              "value": "={{ $json.organization }}"
+            },
+            {
+              "name": "message",
+              "value": "={{ $json.message }}"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}"
+            },
+            {
+              "name": "source",
+              "value": "={{ $json.source }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "extract-contact-data",
+      "name": "Extract Contact Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "subject",
+              "value": "New Contact Form Submission - PV Automation"
+            },
+            {
+              "name": "emailBody",
+              "value": "=New contact form submission received:\n\n👤 Name: {{ $json.name }}\n📧 Email: {{ $json.email }}\n🏢 Organization: {{ $json.organization || 'Not provided' }}\n💬 Message: {{ $json.message }}\n⏰ Timestamp: {{ $json.timestamp }}\n🌐 Source: {{ $json.source }}\n\nThis message was sent from the PV Automation website contact form."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "prepare-email",
+      "name": "Prepare Email",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true, \"message\": \"Contact form submission received successfully\", \"contactName\": $json.name, \"contactEmail\": $json.email, \"timestamp\": $json.timestamp } }}"
+      },
+      "id": "success-response",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [900, 300]
+    },
+
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract Contact Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+
+    "Extract Contact Data": {
+      "main": [
+        [
+          {
+            "node": "Prepare Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Email": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "id": "1",
+  "tags": []
+}

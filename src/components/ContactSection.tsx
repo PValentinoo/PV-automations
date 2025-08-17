@@ -20,10 +20,10 @@ const ContactSection = () => {
     
     try {
       // Get webhook URL from environment variable
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+      const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
       
       if (!webhookUrl) {
-        throw new Error('Webhook URL not configured');
+        throw new Error('N8N Webhook URL not configured');
       }
 
       // Send form data to webhook

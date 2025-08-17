@@ -34,9 +34,12 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground mb-4">Hurtige links</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#hjem" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={scrollToTop}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
                   Hjem
-                </a>
+                </button>
               </li>
               <li>
                 <a href="#eksempler" className="text-muted-foreground hover:text-primary transition-colors">
