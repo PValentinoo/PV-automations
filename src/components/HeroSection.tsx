@@ -133,7 +133,7 @@ const HeroSection = () => {
       </div>
 
         {/* Brushstrokes background - angled from center, fading near top */}
-        <div className="absolute inset-0 -z-5">
+        <div className="absolute inset-0 -z-5 hidden md:block">
         <img 
           src="/brushstrokes.png" 
           alt="" 
