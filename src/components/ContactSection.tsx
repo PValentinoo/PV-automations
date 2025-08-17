@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { personalInfo } from "@/config/personalInfo";
+import { sendContactEmail, ContactFormData } from "@/services/emailService";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -14,51 +15,38 @@ const ContactSection = () => {
     organization: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
-      // Get webhook URL from environment variable
-      const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-      
-      if (!webhookUrl) {
-        throw new Error('N8N Webhook URL not configured');
-      }
+      const emailData: ContactFormData = {
+        name: formData.name,
+        email: formData.email,
+        organization: formData.organization,
+        message: formData.message,
+        timestamp: new Date().toISOString(),
+        source: 'PV Automation Website'
+      };
 
-      // Send form data to webhook
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          organization: formData.organization,
-          message: formData.message,
-          timestamp: new Date().toISOString(),
-          source: 'PV Automation Website'
-        }),
+      // Send email using Resend API
+      await sendContactEmail(emailData);
+
+      toast({
+        title: "Besked sendt!",
+        description: "Tak for din henvendelse. Jeg vender tilbage inden for 24 timer.",
       });
 
-      if (response.ok) {
-        toast({
-          title: "Besked sendt!",
-          description: "Tak for din henvendelse. Jeg vender tilbage inden for 24 timer.",
-        });
-
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          organization: "",
-          message: ""
-        });
-      } else {
-        throw new Error('Failed to send message');
-      }
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        organization: "",
+        message: ""
+      });
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
@@ -66,6 +54,8 @@ const ContactSection = () => {
         description: "Der opstod en fejl. Prøv venligst igen eller kontakt mig direkte.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -170,8 +160,9 @@ const ContactSection = () => {
                     variant="hero" 
                     size="lg" 
                     className="w-full group"
+                    disabled={isSubmitting}
                   >
-                    Send besked
+                    {isSubmitting ? "Sender..." : "Send besked"}
                     <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </form>

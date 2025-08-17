@@ -75,9 +75,13 @@ toggle-maintenance.bat
 
 Create a `.env` file in the root directory with:
 ```env
-VITE_N8N_WEBHOOK_URL=your_webhook_url_here
+VITE_RESEND_API_KEY=your_resend_api_key_here
+VITE_RESEND_FROM_EMAIL=your_from_email@domain.com
+VITE_RESEND_TO_EMAIL=your_to_email@domain.com
 VITE_MAINTENANCE_MODE=false
 ```
+
+**Note:** The project now uses Resend API for sending contact form emails instead of n8n webhooks. See `EMAIL_SETUP.md` for detailed configuration instructions.
 
 ## Development
 
