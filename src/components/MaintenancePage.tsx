@@ -13,7 +13,7 @@ const MaintenancePage = () => {
 
         {/* Main Message */}
         <h1 className="text-5xl font-bold mb-6 text-white">
-          Under Vedligeholdelse
+          Under vedligeholdelse
         </h1>
         
         <p className="text-xl text-gray-300 leading-relaxed">
