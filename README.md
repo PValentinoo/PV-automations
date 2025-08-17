@@ -81,7 +81,7 @@ VITE_RESEND_TO_EMAIL=your_to_email@domain.com
 VITE_MAINTENANCE_MODE=false
 ```
 
-**Note:** The project now uses Resend API for sending contact form emails instead of n8n webhooks. See `EMAIL_SETUP.md` for detailed configuration instructions.
+**Note:** The project now supports both Resend API and n8n webhooks with automatic mobile fallback. See `EMAIL_SETUP.md` and `MOBILE_SETUP.md` for detailed configuration instructions.
 
 ## Development
 

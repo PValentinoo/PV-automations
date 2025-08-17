@@ -49,6 +49,25 @@ const ContactSection = () => {
       });
     } catch (error) {
       console.error('Error sending message:', error);
+      
+      // Handle mobile fallback case
+      if (error instanceof Error && error.message.includes('Email client opened')) {
+        toast({
+          title: "Email klient åbnet!",
+          description: "Din email klient er blevet åbnet. Send venligst beskeden manuelt.",
+          variant: "default",
+        });
+        
+        // Reset form after mobile fallback
+        setFormData({
+          name: "",
+          email: "",
+          organization: "",
+          message: ""
+        });
+        return;
+      }
+      
       toast({
         title: "Fejl ved afsendelse",
         description: "Der opstod en fejl. Prøv venligst igen eller kontakt mig direkte.",

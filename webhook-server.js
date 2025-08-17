@@ -11,7 +11,7 @@ app.use(express.json());
 const receivedMessages = [];
 
 // Webhook endpoint
-app.post('/webhook-test/pvautomations', (req, res) => {
+app.post('/webhook/pvautomations-contact', (req, res) => {
   const message = {
     id: Date.now(),
     timestamp: new Date().toISOString(),
@@ -39,7 +39,7 @@ app.post('/webhook-test/pvautomations', (req, res) => {
 });
 
 // View all received messages
-app.get('/webhook-test/pvautomations', (req, res) => {
+app.get('/webhook/pvautomations-contact', (req, res) => {
   res.json({
     totalMessages: receivedMessages.length,
     messages: receivedMessages
@@ -47,7 +47,7 @@ app.get('/webhook-test/pvautomations', (req, res) => {
 });
 
 // Clear all messages (for testing)
-app.delete('/webhook-test/pvautomations', (req, res) => {
+app.delete('/webhook/pvautomations-contact', (req, res) => {
   receivedMessages.length = 0;
   res.json({ message: 'All messages cleared' });
 });
@@ -59,9 +59,9 @@ app.get('/health', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Webhook server running on http://localhost:${PORT}`);
-  console.log(`📝 Webhook endpoint: http://localhost:${PORT}/webhook-test/pvautomations`);
-  console.log(`👀 View messages: http://localhost:${PORT}/webhook-test/pvautomations`);
-  console.log(`🧹 Clear messages: DELETE http://localhost:${PORT}/webhook-test/pvautomations`);
+  console.log(`📝 Webhook endpoint: http://localhost:${PORT}/webhook/pvautomations-contact`);
+  console.log(`👀 View messages: http://localhost:${PORT}/webhook/pvautomations-contact`);
+  console.log(`🧹 Clear messages: DELETE http://localhost:${PORT}/webhook/pvautomations-contact`);
   console.log(`💚 Health check: http://localhost:${PORT}/health`);
 });
 
