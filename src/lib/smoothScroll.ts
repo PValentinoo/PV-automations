@@ -38,6 +38,8 @@ const easeInOutCubic = (t: number, b: number, c: number, d: number): number => {
 
 // Alternative smooth scroll using native smooth scrolling if available
 export const smoothScrollToNative = (targetId: string, offset: number = SCROLL_OFFSET) => {
+  console.log(`smoothScrollToNative called with targetId: ${targetId}, offset: ${offset}`);
+  
   const targetElement = document.getElementById(targetId);
   
   if (!targetElement) {
@@ -45,15 +47,19 @@ export const smoothScrollToNative = (targetId: string, offset: number = SCROLL_O
     return;
   }
 
+  console.log(`Target element found:`, targetElement);
   const targetPosition = targetElement.offsetTop - offset;
+  console.log(`Scrolling to position: ${targetPosition}`);
   
   // Try native smooth scrolling first
   if ('scrollBehavior' in document.documentElement.style) {
+    console.log('Using native smooth scroll');
     window.scrollTo({
       top: targetPosition,
       behavior: 'smooth'
     });
   } else {
+    console.log('Using custom smooth scroll');
     // Fallback to custom smooth scroll
     smoothScrollTo(targetId, offset);
   }

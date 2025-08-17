@@ -87,8 +87,8 @@ const AboutSection = () => {
                       <h4 className="text-xl font-semibold text-foreground mb-3">🤝 Hvorfor Vælge Mig?</h4>
                       <p className="text-lg text-muted-foreground leading-relaxed">
                         Jeg kombinerer teknisk ekspertise med forretningsforståelse. Det betyder at jeg ikke 
-                        bare bygger kode eller excel ark - jeg bygger løsninger der giver mening for jeres virksomhed.
-                        Og jeg er her for at hjælpe jer også efter projektet er færdigt.
+                        bare bygger kode eller Excel ark, men løsninger der giver mening for jeres virksomhed.
+                        Og jeg er her for at hjælpe jer - også efter projektet er færdigt.
                       </p>
                     </div>
                   </div>

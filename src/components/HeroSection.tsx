@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section id="hjem" className="bg-gradient-hero relative overflow-hidden">
       {/* Subtle waves background */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         <svg
           className="absolute top-0 left-0 w-full h-full opacity-10"
           viewBox="0 0 1200 400"
@@ -133,7 +133,7 @@ const HeroSection = () => {
       </div>
 
         {/* Brushstrokes background - angled from center, fading near top */}
-        <div className="absolute inset-0 -z-15">
+        <div className="absolute inset-0 -z-5">
         <img 
           src="/brushstrokes.png" 
           alt="" 
@@ -178,7 +178,7 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-20">
             <Button 
               variant="hero" 
               size="xl" 
@@ -191,7 +191,14 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="xl"
-              onClick={() => smoothScrollToNative('eksempler')}
+              className="relative z-10 cursor-pointer"
+              onClick={() => {
+                console.log('Button clicked!');
+                console.log('Attempting to scroll to eksempler section');
+                smoothScrollToNative('eksempler');
+              }}
+              onMouseEnter={() => console.log('Button hovered')}
+              onMouseDown={() => console.log('Button mouse down')}
             >
               Se eksempler
             </Button>
