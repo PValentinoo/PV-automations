@@ -42,63 +42,6 @@ Denne besked blev sendt fra PV Automation hjemmesiden.
   return `mailto:philipchristiansen1@gmail.com?subject=${subject}&body=${body}`;
 };
 
-// Try to send via Resend API first (if configured)
-const tryResendAPI = async (formData: ContactFormData): Promise<boolean> => {
-  const resendApiKey = import.meta.env.VITE_RESEND_API_KEY;
-  const fromEmail = import.meta.env.VITE_RESEND_FROM_EMAIL;
-  const toEmail = import.meta.env.VITE_RESEND_TO_EMAIL;
-  
-  if (!resendApiKey || !fromEmail || !toEmail) {
-    console.log('Resend API not configured, skipping...');
-    return false;
-  }
-  
-  try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: toEmail,
-        subject: 'Ny henvendelse fra PV Automation hjemmeside',
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #2563eb;">Ny henvendelse modtaget</h2>
-            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <p><strong>👤 Navn:</strong> ${formData.name}</p>
-              <p><strong>📧 Email:</strong> ${formData.email}</p>
-              <p><strong>🏢 Virksomhed:</strong> ${formData.organization || 'Ikke angivet'}</p>
-              <p><strong>💬 Besked:</strong></p>
-              <div style="background: white; padding: 15px; border-radius: 6px; border-left: 4px solid #2563eb;">
-                ${formData.message.replace(/\n/g, '<br>')}
-              </div>
-              <p><strong>⏰ Tidspunkt:</strong> ${new Date(formData.timestamp).toLocaleString('da-DK')}</p>
-              <p><strong>🌐 Kilde:</strong> ${formData.source}</p>
-            </div>
-            <p style="color: #64748b; font-size: 14px;">
-              Denne besked blev sendt fra PV Automation hjemmesiden.
-            </p>
-          </div>
-        `,
-      }),
-    });
-    
-    if (response.ok) {
-      console.log('Email sent successfully via Resend API');
-      return true;
-    } else {
-      console.log('Resend API failed, falling back to webhook...');
-      return false;
-    }
-  } catch (error) {
-    console.log('Resend API error, falling back to webhook:', error);
-    return false;
-  }
-};
-
 // Try to send via n8n webhook
 const tryWebhook = async (formData: ContactFormData): Promise<boolean> => {
   const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
@@ -138,19 +81,13 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<void>
   const isMobile = isMobileDevice();
   console.log('Device type:', isMobile ? 'Mobile' : 'Desktop');
   
-  // Try Resend API first (most reliable)
-  const resendSuccess = await tryResendAPI(formData);
-  if (resendSuccess) {
-    return;
-  }
-  
-  // Try webhook if Resend failed
+  // Try webhook first
   const webhookSuccess = await tryWebhook(formData);
   if (webhookSuccess) {
     return;
   }
   
-  // If both failed, handle based on device type
+  // If webhook failed, handle based on device type
   if (isMobile) {
     console.log('Mobile device detected, opening email client as fallback...');
     
@@ -171,6 +108,6 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<void>
     }
   } else {
     // Desktop fallback - show error message
-    throw new Error('Kunne ikke sende besked. Prøv venligst igen eller kontakt mig direkte.');
+    throw new Error('Kunne ikke sende besked via webhook. Prøv venligst igen eller kontakt mig direkte.');
   }
 };
