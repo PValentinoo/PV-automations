@@ -126,6 +126,21 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Prevent image dragging and downloading */
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
+
+  /* Allow pointer events for interactive images if needed */
+  img[onclick], img[role="button"], img[tabindex] {
+    pointer-events: auto;
+  }
 }
 
 /* Custom wave line animations */
