@@ -1,4 +1,5 @@
 import { Wrench } from "lucide-react";
+import { personalInfo } from "@/config/personalInfo";
 
 const MaintenancePage = () => {
   return (
@@ -27,16 +28,16 @@ const MaintenancePage = () => {
         <div className="text-gray-400">
           <p className="mb-2">Har du brug for at komme i kontakt?</p>
           <a 
-            href="mailto:philipchristiansen1@gmail.com" 
+            href={`mailto:${personalInfo.email}`} 
             className="text-blue-400 hover:text-blue-300 transition-colors underline"
           >
-            philipchristiansen1@gmail.com
+            {personalInfo.email}
           </a>
         </div>
 
         {/* Footer */}
         <div className="mt-16 text-gray-500 text-sm">
-          <p>© 2025 PV Automation</p>
+          <p>{personalInfo.copyright.fullText}</p>
         </div>
       </div>
     </div>

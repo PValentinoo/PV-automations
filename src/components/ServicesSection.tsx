@@ -8,32 +8,32 @@ const ServicesSection = () => {
     {
       title: "Procesautomatisering",
       description: "Eliminér manuelle opgaver og optimer workflows",
-      features: ["Workflow automation", "Databehandling", "Kvalitetssikring", "Tidsbesparelse"]
+      features: ["Databehandling", "Workflow automation", "Kvalitetssikring", "Tidsbesparing"]
     },
     {
       title: "Systemintegration",
       description: "Forbind eksisterende systemer og skab synergi",
-      features: ["API udvikling", "Database synkronisering", "Real-time data", "Legacy system opdatering"]
+      features: ["API integrationer", "Database integrationer", "Real-time data", "Legacy system opdatering"]
     },
     {
       title: "Business Intelligence",
       description: "Transformer data til strategiske indsigter",
-      features: ["Dashboard udvikling", "Rapportering", "Predictive analytics", "KPI tracking"]
+      features: ["Dashboard udvikling", "Rapportering", "AI analyseværktøjer", "KPI tracking"]
     },
     {
-      title: "Cloud Solutions",
-      description: "Moderne, skalerbar infrastruktur i skyen",
-      features: ["Cloud migration", "Infrastruktur som kode", "Auto-scaling", "Cost optimization"]
+      title: "Excel løsninger",
+      description: "Store  små komplette værktøjer og integrationer",
+      features: ["VBA kodede løsninger", "Opsætning af Formler, tabeller og grafer",  "Optimering af eksisterende regneark", "Data integrationer"]
     },
     {
       title: "Custom Software",
       description: "Skræddersyede applikationer til jeres behov",
-      features: ["Web applikationer", "Mobile løsninger", "Desktop software", "API services"]
+      features: ["Web applikationer", "Mobile løsninger", "Platforme", "API services"]
     },
     {
       title: "Digital Transformation",
       description: "Holistisk tilgang til digitalisering",
-      features: ["Strategisk rådgivning", "Change management", "Teknologivurdering", "ROI optimering"]
+      features: ["Strategisk rådgivning", "Vejledende implementering", "Teknologivurdering", "Tracking og optimering"]
     }
   ];
 
@@ -48,7 +48,7 @@ const ServicesSection = () => {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Vi leverer professionelle automatiseringsløsninger til virksomheder i alle størrelser. 
+            Professionelle automatiseringsløsninger til virksomheder i alle størrelser. 
             Fra enkle procesoptimeringer til komplekse enterprise transformationer.
           </p>
         </div>

@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { personalInfo } from "@/config/personalInfo";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -88,7 +89,7 @@ const ContactSection = () => {
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Er I klar til at tage jeres processer til næste niveau? 
-              Kontakt os for en professionel gennemgang af mulighederne.
+              Kontakt mig for en professionel gennemgang af mulighederne.
             </p>
           </div>
 
@@ -199,10 +200,10 @@ const ContactSection = () => {
                       <div>
                         <h4 className="font-semibold text-foreground">Email</h4>
                         <a 
-                          href="mailto:philipchristiansen1@gmail.com"
+                          href={`mailto:${personalInfo.email}`}
                           className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                         >
-                          philipchristiansen1@gmail.com
+                          {personalInfo.email}
                         </a>
                       </div>
                     </div>
@@ -213,7 +214,7 @@ const ContactSection = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-foreground">Telefon</h4>
-                        <p className="text-muted-foreground">+45 29 11 73 37</p>
+                        <p className="text-muted-foreground">{personalInfo.phone}</p>
                       </div>
                     </div>
                     
@@ -223,7 +224,14 @@ const ContactSection = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-foreground">LinkedIn</h4>
-                        <p className="text-muted-foreground">linkedin.com/in/philip-valentin/</p>
+                        <a 
+                          href={personalInfo.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                        >
+                          {personalInfo.linkedin.replace('https://', '')}
+                        </a>
                       </div>
                     </div>
                   </div>

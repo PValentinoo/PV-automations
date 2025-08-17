@@ -37,7 +37,7 @@ const ExamplesSection = () => {
     {
       icon: FileSpreadsheet,
       title: "Optimering af Excel-processer",
-      description: "Makroer og automatiseringer, der neutraliserer gentagne opgaver, fra datahåndtering og beregninger til oprettelse af sheets og funktioner, hvilket effektiviserer arbejdet og reducerer fejl.",
+      description: "  Makroer og automatiseringer, der neutraliserer gentagne opgaver, fra datahåndtering og beregninger til oprettelse af sheets og funktioner, hvilket effektiviserer arbejdet og reducerer fejl.",
       tag: "Excel Automation"
     },
     {

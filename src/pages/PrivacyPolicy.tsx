@@ -1,5 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { personalInfo } from "@/config/personalInfo";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
@@ -169,7 +170,7 @@ const PrivacyPolicy = () => {
               <li>• Ret til at trække samtykke tilbage</li>
             </ul>
             <p className="text-muted-foreground leading-relaxed mt-4">
-              For at udøve disse rettigheder, kontakt mig på philipchristiansen1@gmail.com.
+              For at udøve disse rettigheder, kontakt mig på {personalInfo.email}.
             </p>
           </section>
 
@@ -218,11 +219,11 @@ const PrivacyPolicy = () => {
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Hvis du har spørgsmål eller bekymringer om denne privatlivspolitik eller vores håndtering af dine 
-              personlige oplysninger, kontakt os venligst:
+              personlige oplysninger, kontakt mig venligst:
             </p>
             <div className="space-y-2 text-muted-foreground">
-              <p><strong>E-mail:</strong> philipchristiansen1@gmail.com</p>
-              <p><strong>Telefon:</strong> +45 29 11 73 37</p>
+                              <p><strong>E-mail:</strong> {personalInfo.email}</p>
+                              <p><strong>Telefon:</strong> {personalInfo.phone}</p>
             </div>
             <p className="text-muted-foreground leading-relaxed mt-4">
               Vi vil svare på din henvendelse inden for rimelig tid og hjælpe dig med eventuelle spørgsmål.

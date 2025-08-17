@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Clock, Target, Code, Database, Zap, Lightbulb } from "lucide-react";
+import { personalInfo } from "@/config/personalInfo";
 
 const AboutSection = () => {
   const skills = [
@@ -37,11 +38,11 @@ const AboutSection = () => {
               </span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Mit navn er <strong>Philip Valentin Christiansen</strong>, og jeg står bag <strong>PV Automations</strong>.<br />
+              Mit navn er <strong>{personalInfo.name}</strong>, og jeg står bag <strong>{personalInfo.company}</strong>.<br />
               Jeg er udvikler og automatiseringsekspert med en passion for at optimere arbejdsgange 
               og bringe moderne teknologi ind i virksomheder.<br />
               <br />
-              Med mere end <strong>4+ års erfaring</strong> fra revisionsbranchen har jeg udviklet en bred vifte af 
+              Med mere end <strong>{personalInfo.experience}+ års erfraing</strong> fra {personalInfo.workExperience.industry} har jeg udviklet en bred vifte af 
               værktøjer og automatiseringer, som har effektiviseret processer, reduceret manuelle 
               opgaver og frigjort tid til værdiskabende arbejde.<br /> 
             </p>
@@ -67,7 +68,7 @@ const AboutSection = () => {
                     <div>
                       <h4 className="text-xl font-semibold text-foreground mb-3">🚀 Erfaring & Ekspertise</h4>
                       <p className="text-lg text-muted-foreground leading-relaxed">
-                        Med over 4 års erfaring i revision og digital transformation har jeg arbejdet med alt fra små startups til 
+                        Med over {personalInfo.experience} års erfaring i revision og digital transformation har jeg arbejdet med alt fra små startups til 
                         store virksomheder. Jeg specialiserer mig i at bygge skalerbare systemer der vokser med 
                         jeres forretning.
                       </p>
@@ -101,24 +102,24 @@ const AboutSection = () => {
                   <CardContent className="p-8 text-center">
                     <div className="mb-6">
                       <img 
-                        src="/Philip Valentin Christiansen_21038.jpg" 
-                        alt="Philip Valentin Christiansen" 
+                        src={personalInfo.profileImage.src} 
+                        alt={personalInfo.profileImage.alt} 
                         className="w-48 h-48 md:w-56 md:h-56 rounded-full mx-auto object-cover shadow-soft border-4 border-white/20"
                       />
                     </div>
                     <h4 className="text-2xl font-bold text-foreground mb-3">
-                      Philip Valentin Christiansen
+                      {personalInfo.name}
                     </h4>
                     <p className="text-muted-foreground mb-4">
-                      Full-Stack Developer & Automatiseringsekspert
+                      {personalInfo.title}
                     </p>
                     <div className="space-y-3 text-sm text-muted-foreground">
-                      <div>📍 Danmark</div>
-                      <div>💼 4+ års erfaring</div>
-                      <div>🎓 HD uddannet</div>
-                      <div>🚀 50+ projekter leveret</div>
-                      <div>🌍 Dansk, engelsk og russisk talende</div>
-                      <div>📊 Modersmål: Excel</div>
+                      <div>📍 {personalInfo.location}</div>
+                      <div>💼 {personalInfo.experience}+ års erfaring</div>
+                      <div>🎓 {personalInfo.education}</div>
+                      <div>🚀 {personalInfo.projectsDelivered}</div>
+                      <div>🌍 {personalInfo.languages.join(", ")} talende</div>
+                      <div>📊 {personalInfo.excelExpertise}</div>
                     </div>
                   </CardContent>
                 </Card>

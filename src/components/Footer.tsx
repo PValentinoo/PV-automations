@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Linkedin, ArrowUp } from "lucide-react";
 import { smoothScrollToNative } from "@/lib/smoothScroll";
+import { personalInfo } from "@/config/personalInfo";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -83,18 +84,18 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary" />
                 <a 
-                  href="mailto:philipchristiansen1@gmail.com"
+                  href={`mailto:${personalInfo.email}`}
                   className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                 >
-                  philipchristiansen1@gmail.com
+                  {personalInfo.email}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground">+45 29 11 73 37</span>
+                <span className="text-muted-foreground">{personalInfo.phone}</span>
               </div>
               <a 
-                href="https://www.linkedin.com/in/philip-valentin/" 
+                href={personalInfo.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
@@ -109,7 +110,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © 2025 PV Automations. Alle rettigheder forbeholdt.
+            © {personalInfo.copyright.year} {personalInfo.company}. Alle rettigheder forbeholdt.
           </p>
           
           <div className="flex items-center space-x-6">

@@ -117,6 +117,36 @@ const HeroSection = () => {
         </svg>
       </div>
 
+      {/* Brushstrokes background - angled from center, fading near top */}
+      <div className="absolute inset-0 -z-15">
+        <img 
+          src="/brushstrokes.png" 
+          alt="" 
+          className="absolute w-[1200px] h-[400px] object-contain opacity-60" 
+          style={{ 
+            left: '8%', 
+            top: '-20%',
+            transform: 'translateX(-50%) rotate(-55deg) scaleY(1)',
+            filter: 'opacity(0.7)'
+          }}
+        />
+      </div>
+
+        {/* Brushstrokes background - angled from center, fading near top */}
+        <div className="absolute inset-0 -z-15">
+        <img 
+          src="/brushstrokes.png" 
+          alt="" 
+          className="absolute w-[1200px] h-[400px] object-contain opacity-60" 
+          style={{ 
+            left: '90%', 
+            top: '-2%',
+            transform: 'translateX(-50%) rotate(43deg) scaleY(1)',
+            filter: 'opacity(0.7)'
+          }}
+        />
+      </div>
+
       <div className="container mx-auto px-4 lg:px-8 pt-8 pb-12">
         <div className="max-w-4xl mx-auto text-center">
           {/* Icon */}
@@ -140,7 +170,7 @@ const HeroSection = () => {
           {/* Description */}
           <div className="mb-12 max-w-3xl mx-auto">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Vi leverer skræddersyede digitale løsninger til både små og store virksomheder.
+              Skræddersyede digitale løsninger til netop din virksomhed.
             </p>
             <p className="text-base md:text-lg text-muted-foreground/80 leading-relaxed italic">
               fra enkle procesoptimeringer til komplekse systemer.
