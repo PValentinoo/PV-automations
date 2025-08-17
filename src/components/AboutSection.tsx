@@ -41,7 +41,7 @@ const AboutSection = () => {
               Jeg er udvikler og automatiseringsekspert med en passion for at optimere arbejdsgange 
               og bringe moderne teknologi ind i virksomheder.<br />
               <br />
-              Med mere end <strong>5+ års erfaring</strong> fra revisionsbranchen har jeg udviklet en bred vifte af 
+              Med mere end <strong>4+ års erfaring</strong> fra revisionsbranchen har jeg udviklet en bred vifte af 
               værktøjer og automatiseringer, som har effektiviseret processer, reduceret manuelle 
               opgaver og frigjort tid til værdiskabende arbejde.<br /> 
             </p>
@@ -67,7 +67,7 @@ const AboutSection = () => {
                     <div>
                       <h4 className="text-xl font-semibold text-foreground mb-3">🚀 Erfaring & Ekspertise</h4>
                       <p className="text-lg text-muted-foreground leading-relaxed">
-                        Med over 5 års erfaring i revision og digital transformation har jeg arbejdet med alt fra små startups til 
+                        Med over 4 års erfaring i revision og digital transformation har jeg arbejdet med alt fra små startups til 
                         store virksomheder. Jeg specialiserer mig i at bygge skalerbare systemer der vokser med 
                         jeres forretning.
                       </p>
@@ -114,7 +114,7 @@ const AboutSection = () => {
                     </p>
                     <div className="space-y-3 text-sm text-muted-foreground">
                       <div>📍 Danmark</div>
-                      <div>💼 5+ års erfaring</div>
+                      <div>💼 4+ års erfaring</div>
                       <div>🎓 HD uddannet</div>
                       <div>🚀 50+ projekter leveret</div>
                       <div>🌍 Dansk, engelsk og russisk talende</div>
