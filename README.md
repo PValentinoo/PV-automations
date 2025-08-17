@@ -14,6 +14,7 @@ Based on the PRD requirements, this website serves as the public face of a custo
 - **Contact Form**: Form to book consultations
 - **Responsive Design**: Fully responsive on mobile and tablet
 - **Danish Language**: All content in Danish as specified
+- **Maintenance Mode**: Easy toggle to show maintenance page while working on the site
 
 ## Technology Stack
 
@@ -47,6 +48,37 @@ npm run build
 npm run preview
 ```
 
+## Maintenance Mode
+
+The website includes a maintenance mode feature that allows you to easily display an "under maintenance" page while working on the site.
+
+### Quick Toggle
+
+**Windows (Batch):**
+```bash
+toggle-maintenance.bat
+```
+
+**Windows (PowerShell):**
+```powershell
+.\toggle-maintenance.ps1
+```
+
+### Manual Toggle
+
+1. Edit the `.env` file
+2. Set `VITE_MAINTENANCE_MODE=true` to enable maintenance mode
+3. Set `VITE_MAINTENANCE_MODE=false` to disable maintenance mode
+4. Restart your development server or redeploy
+
+### Environment Variables
+
+Create a `.env` file in the root directory with:
+```env
+VITE_N8N_WEBHOOK_URL=your_webhook_url_here
+VITE_MAINTENANCE_MODE=false
+```
+
 ## Development
 
 The project structure follows a clean, organized approach:
@@ -64,3 +96,5 @@ This is a static site that can be deployed to any static hosting service like:
 - Any web server
 
 Build the project with `npm run build` and deploy the `dist` folder.
+
+**Note:** When deploying, make sure to set the appropriate environment variables for your production environment, including the maintenance mode setting.

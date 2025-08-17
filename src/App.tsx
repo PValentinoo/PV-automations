@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import MaintenancePage from "./components/MaintenancePage";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 // Smooth Page Transition Wrapper
@@ -31,6 +32,14 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
 
 const AppContent = () => {
   useScrollToTop();
+
+  // Check if maintenance mode is enabled
+  const isMaintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+
+  // If maintenance mode is enabled, show maintenance page
+  if (isMaintenanceMode) {
+    return <MaintenancePage />;
+  }
 
   return (
     <div className="min-h-screen">
