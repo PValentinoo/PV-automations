@@ -135,7 +135,7 @@ const PriceSection = () => {
 
           {/* AI Tool Call to Action */}
           <div className="text-center mt-8">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group" onClick={() => smoothScrollToNative('ai-evaluation')}>
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group" onClick={() => smoothScrollToNative('ai-tool')}>
               <span className="text-lg font-semibold">
                 Vil du have estimeret dit projekt? Få et gratis estimat her!
               </span>
