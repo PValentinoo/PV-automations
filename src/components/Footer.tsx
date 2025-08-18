@@ -68,14 +68,6 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => smoothScrollToNative('kontakt')}
-                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
-                >
-                  Kontakt
-                </button>
-              </li>
-              <li>
-                <button 
                   onClick={() => smoothScrollToNative('ai-evaluation')}
                   className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
                 >
@@ -88,6 +80,14 @@ const Footer = () => {
                   className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
                 >
                   Pris
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => smoothScrollToNative('kontakt')}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
+                >
+                  Kontakt
                 </button>
               </li>
             </ul>

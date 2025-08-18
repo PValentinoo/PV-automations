@@ -210,7 +210,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg"
               className="relative z-10 cursor-pointer border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-300"
-              onClick={() => smoothScrollToNative('ai-evaluation')}
+              onClick={() => smoothScrollToNative('ai-tool')}
             >
               Gratis AI tool
             </Button>

@@ -120,7 +120,7 @@ const AIProjectEvaluation = () => {
   };
 
   return (
-    <section id="ai-evaluation" className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section id="ai-tool" className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">

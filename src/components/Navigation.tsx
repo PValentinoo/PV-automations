@@ -11,6 +11,7 @@ const Navigation = () => {
     { href: "#eksempler", label: "Eksempler" },
     { href: "#ydelser", label: "Ydelser" },
     { href: "#om", label: "Om" },
+    { href: "#ai-tool", label: "Gratis AI tool" },
     { href: "#pricing", label: "Priser" },
     { href: "#kontakt", label: "Kontakt" },
   ];
