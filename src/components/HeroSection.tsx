@@ -204,6 +204,18 @@ const HeroSection = () => {
             </Button>
           </div>
 
+          {/* AI Tool Button */}
+          <div className="mt-6 flex justify-center relative z-20">
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="relative z-10 cursor-pointer border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-300"
+              onClick={() => smoothScrollToNative('ai-evaluation')}
+            >
+              Gratis AI tool
+            </Button>
+          </div>
+
           {/* Trust Indicator */}
           <div className="mt-16 text-center">
             <p className="text-sm text-muted-foreground mb-4">

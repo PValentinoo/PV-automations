@@ -80,24 +80,36 @@ const ServicesSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-gradient-hero rounded-2xl p-12 shadow-soft">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Klar til at transformere jeres processer?
-          </h3>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Lad os analysere jeres nuværende setup og identificere muligheder for automatisering og optimering.
-          </p>
-          <Button 
-            variant="hero" 
-            size="xl" 
-            className="group"
-            onClick={() => smoothScrollToNative('kontakt')}
-          >
-            Kontakt mig i dag
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
+        <Card className="bg-gradient-card border-border/50 shadow-soft max-w-6xl mx-auto">
+            <CardContent className="p-8 md:p-12 text-center">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Klar til at transformere jeres processer?
+              </h3>
+              <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
+                Lad os snakke om hvordan jeg kan hjælpe jer med at automatisere, optimere og skabe 
+                de digitale løsninger jeres virksomhed har brug for.
+              </p>
+                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                 <div className="text-xl font-semibold text-primary">
+                   Gratis førstesamtale
+                 </div>
+                 <div className="text-lg text-muted-foreground">
+                   • Ingen forpligtelse • Personlig rådgivning • Konkrete forslag
+                 </div>
+               </div>
+               <Button 
+                   variant="hero" 
+                   size="xl" 
+                   className="group"
+                   onClick={() => smoothScrollToNative('kontakt')}
+               >
+                   Kontakt mig i dag
+                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+               </Button>
+            </CardContent>
+          </Card>
       </div>
+
     </section>
   );
 };

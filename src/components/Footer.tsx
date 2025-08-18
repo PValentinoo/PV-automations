@@ -74,6 +74,22 @@ const Footer = () => {
                   Kontakt
                 </button>
               </li>
+              <li>
+                <button 
+                  onClick={() => smoothScrollToNative('ai-evaluation')}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
+                >
+                  Gratis AI tool
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => smoothScrollToNative('pricing')}
+                  className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
+                >
+                  Pris
+                </button>
+              </li>
             </ul>
           </div>
 

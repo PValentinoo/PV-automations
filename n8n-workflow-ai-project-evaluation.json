@@ -1,0 +1,226 @@
+{
+  "name": "PV Automation AI Project Evaluation Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook-test/pvautomations-ai-evaluation",
+        "options": {
+          "rawBody": true
+        }
+      },
+      "id": "webhook-node",
+      "name": "AI Project Evaluation Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "pvautomations-ai-evaluation"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "projectDescription",
+              "value": "={{ $json.projectDescription }}"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ $json.timestamp }}"
+            },
+            {
+              "name": "source",
+              "value": "={{ $json.source }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "extract-project-data",
+      "name": "Extract Project Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "aiPrompt",
+              "value": "Du er en ekspert inden for automatisering og digital transformation hos PV Automation. Analysér følgende projektbeskrivelse og giv en professionel evaluering med konkrete forslag til optimering og automatisering.\n\nProjektbeskrivelse: {{ $json.projectDescription }}\n\nGiv svar på dansk med følgende struktur:\n\n**PROJEKTANALYSE OG FORSTÅELSE**\nGiv en kortfattet beskrivelse af projektets kerne og formål.\n\n**IDENTIFICEREDE UDFORDRINGER OG MULIGHEDER**\nListe de vigtigste udfordringer og muligheder for automatisering.\n\n**KONKRETE FORSLAG TIL AUTOMATISERING**\nBeskriv specifikt hvordan processen kan automatiseres.\n\n**ANBEFALEDE TEKNOLOGIER OG VÆRKTØJER**\nNævn konkrete teknologier, platforme eller værktøjer der kan bruges.\n\n**FORVENTET ROI OG TIDSBESPARELSE**\nGiv et realistisk estimat af tidsbesparelse og ROI.\n\n**NÆSTE SKRIDT OG ANBEFALINGER**\nForeslå konkrete næste skridt for at komme i gang.\n\nHold det professionelt men tilgængeligt. Brug bullet points hvor det giver mening. Giv konkrete eksempler og estimater hvor muligt."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "prepare-ai-prompt",
+      "name": "Prepare AI Prompt",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "predefinedCredentialType",
+        "resource": "chat",
+        "operation": "message",
+        "model": "gpt-4",
+        "messages": {
+          "messageValues": [
+            {
+              "role": "user",
+              "content": "={{ $json.aiPrompt }}"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.7,
+          "maxTokens": 2000
+        }
+      },
+      "id": "openai-chat",
+      "name": "OpenAI Chat",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "subject",
+              "value": "AI Projekt Evaluering - {{ $('Extract Project Data').item.json.projectDescription.substring(0, 50) }}..."
+            },
+            {
+              "name": "emailBody",
+              "value": "=Ny AI projekt evaluering modtaget:\n\n📋 Projektbeskrivelse: {{ $('Extract Project Data').item.json.projectDescription }}\n⏰ Timestamp: {{ $('Extract Project Data').item.json.timestamp }}\n🌐 Source: {{ $('Extract Project Data').item.json.source }}\n\n🤖 AI Evaluering:\n{{ $('OpenAI Chat').item.json.choices[0].message.content }}\n\nDenne evaluering blev genereret automatisk af AI-systemet på PV Automation hjemmesiden."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "prepare-email",
+      "name": "Prepare Email",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "Projektbeskrivelse",
+              "value": "={{ $('Extract Project Data').item.json.projectDescription }}"
+            },
+            {
+              "name": "Tech-stack",
+              "value": "={{ $('OpenAI Chat').item.json.choices[0].message.content }}"
+            },
+            {
+              "name": "Tidsestimat",
+              "value": "{{ $('OpenAI Chat').item.json.choices[0].message.content.includes('tidsestimat') ? 'Baseret på AI-analyse: ' + ($('OpenAI Chat').item.json.choices[0].message.content.match(/\\d+\\s*(timer|dage|uger|måneder)/i) ? $('OpenAI Chat').item.json.choices[0].message.content.match(/\\d+\\s*(timer|dage|uger|måneder)/i)[0] : '2-4 uger') : '2-4 uger (vejledende)' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "prepare-structured-response",
+      "name": "Prepare Structured Response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true, \"message\": \"AI project evaluation completed successfully\", \"evaluationGenerated\": true, \"timestamp\": $('Extract Project Data').item.json.timestamp, \"requestId\": \"eval_\" + Date.now(), \"data\": $('Prepare Structured Response').item.json, \"metadata\": { \"processingTime\": \"~10-15 seconds\", \"aiModel\": \"GPT-4\", \"confidence\": \"High\", \"version\": \"1.0\" } } }}"
+      },
+      "id": "success-response",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 300]
+    }
+  ],
+  "connections": {
+    "AI Project Evaluation Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract Project Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Project Data": {
+      "main": [
+        [
+          {
+            "node": "Prepare AI Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare AI Prompt": {
+      "main": [
+        [
+          {
+            "node": "OpenAI Chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat": {
+      "main": [
+        [
+          {
+            "node": "Prepare Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Email": {
+      "main": [
+        [
+          {
+            "node": "Prepare Structured Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Structured Response": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "id": "2",
+  "tags": ["ai", "project-evaluation", "automation"]
+}
