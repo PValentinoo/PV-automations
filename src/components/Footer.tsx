@@ -68,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => smoothScrollToNative('ai-evaluation')}
+                  onClick={() => smoothScrollToNative('ai-tool')}
                   className="text-muted-foreground hover:text-primary transition-colors cursor-pointer bg-transparent border-none text-left w-full"
                 >
                   Gratis AI tool
