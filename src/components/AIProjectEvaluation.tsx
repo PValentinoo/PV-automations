@@ -132,7 +132,7 @@ const AIProjectEvaluation = () => {
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Få en grundig evaluering af jeres projekts tekniske implementering og tidsbudget. <br />
               Lad endelig dette værktøj Inspirere for jeres fremtidige projekt  <br />
-              <i>Tid anvendt til at udvikle dette værktøj: 5,5 timer.</i> <br />
+              <i>Tid anvendt til at udvikle dette værktøj: 11,5 timer.</i> <br />
 
             </p>
           </div>
