@@ -173,7 +173,7 @@ const HeroSection = () => {
               Skræddersyede digitale løsninger til netop din virksomhed.
             </p>
             <p className="text-base md:text-lg text-muted-foreground/80 leading-relaxed italic">
-              fra enkle procesoptimeringer til komplekse systemer.
+              Fra enkle procesoptimeringer til komplekse systemer.
             </p>
           </div>
 

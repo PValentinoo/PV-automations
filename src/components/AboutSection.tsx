@@ -42,7 +42,7 @@ const AboutSection = () => {
               Jeg er udvikler og automatiseringsekspert med en passion for at optimere arbejdsgange 
               og bringe moderne teknologi ind i virksomheder.<br />
               <br />
-              Med mere end <strong>{personalInfo.experience}+ års erfraing</strong> fra {personalInfo.workExperience.industry} har jeg udviklet en bred vifte af 
+              Med <strong>{personalInfo.experience}+ års erfraing</strong> fra {personalInfo.workExperience.industry} har jeg udviklet en bred vifte af 
               værktøjer og automatiseringer, som har effektiviseret processer, reduceret manuelle 
               opgaver og frigjort tid til værdiskabende arbejde.<br /> 
             </p>
