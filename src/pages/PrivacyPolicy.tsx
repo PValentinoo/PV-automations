@@ -96,7 +96,7 @@ const PrivacyPolicy = () => {
             </h2>
             <div className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                Vores hjemmeside bruger cookies til at forbedre din oplevelse:
+                Min hjemmeside bruger cookies til at forbedre din oplevelse:
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>

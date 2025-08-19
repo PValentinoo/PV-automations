@@ -27,7 +27,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="om" className="py-24 bg-gradient-card">
+    <section id="om" className="py-12 bg-gradient-card">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
@@ -147,26 +147,6 @@ const AboutSection = () => {
               );
             })}
           </div>
-
-          <Card className="bg-gradient-card border-border/50 shadow-soft">
-            <CardContent className="p-8 md:p-12 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                Klar til at optimere jeres processer?
-              </h3>
-              <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Lad os snakke om hvordan jeg kan hjælpe jer med at automatisere, optimere og skabe 
-                de digitale løsninger jeres virksomhed har brug for.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <div className="text-xl font-semibold text-primary">
-                  Gratis førstesamtale
-                </div>
-                <div className="text-lg text-muted-foreground">
-                  • Ingen forpligtelse • Personlig rådgivning • Konkrete forslag
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

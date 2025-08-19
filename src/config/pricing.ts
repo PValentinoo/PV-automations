@@ -5,7 +5,7 @@ export const pricingConfig = {
       id: "small",
       name: "Små projekter",
       hours: "Mindre end 24 timer",
-      price: 1000,
+      price: 900,
       currency: "DKK",
       perUnit: "i timen",
       description: "For mindre automatiseringer og optimeringsprojekter"
@@ -23,7 +23,7 @@ export const pricingConfig = {
       id: "large",
       name: "Store projekter", 
       hours: "Over 70 timer",
-      price: 600,
+      price: 700,
       currency: "DKK",
       perUnit: "i timen",
       description: "For omfattende automatiseringer og enterprise løsninger"

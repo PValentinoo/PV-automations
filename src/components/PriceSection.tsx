@@ -15,9 +15,9 @@ const PriceSection = () => {
               </span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Få et klart overblik over vores priser baseret på projektets omfang. <br />
-              Vi tilbyder fleksible priser der skalerer med jeres behov. <br />
-              <i>Denne hjemmeside er udviklet på ca. 113 timer, svarende til en udgift på 67.800 kr.</i> <br />
+              Få et klart overblik over prisen baseret på projektets omfang. <br />
+              Jeg tilbyder fleksible priser der skalerer med jeres behov. <br />
+              <i>Denne hjemmeside er udviklet på ca. 95 timer, svarende til en udgift på 66.500 kr.</i> <br />
             </p>
           </div>
 
